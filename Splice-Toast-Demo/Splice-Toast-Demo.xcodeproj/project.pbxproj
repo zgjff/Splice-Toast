@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E09A1FC278803C800DED061 /* ContaienrQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A1FB278803C800DED061 /* ContaienrQueue.swift */; };
+		5E09A1FE278803E600DED061 /* ContainerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A1FD278803E600DED061 /* ContainerAnimator.swift */; };
+		5E09A200278803F400DED061 /* ToastContainerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A1FF278803F400DED061 /* ToastContainerOptions.swift */; };
+		5E09A2022788040D00DED061 /* WeakProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A2012788040D00DED061 /* WeakProxy.swift */; };
+		5E09A2042788042F00DED061 /* ToastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A2032788042F00DED061 /* ToastItem.swift */; };
+		5E09A2082788044C00DED061 /* ToastDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A2072788044C00DED061 /* ToastDSL.swift */; };
+		5E09A20A2788047200DED061 /* UIView+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A2092788047200DED061 /* UIView+Toast.swift */; };
+		5E09A20C2788048100DED061 /* ToastContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A20B2788048100DED061 /* ToastContainer.swift */; };
+		5E09A20E278804C100DED061 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A20D278804C100DED061 /* String+NSRange.swift */; };
+		5E09A210278804CD00DED061 /* CALayer+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A20F278804CD00DED061 /* CALayer+CornerRadius.swift */; };
+		5E09A21227880C8100DED061 /* BlurEffectContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A21127880C8100DED061 /* BlurEffectContainer.swift */; };
+		5E09A21427880C9E00DED061 /* ColorfulContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A21327880C9E00DED061 /* ColorfulContainer.swift */; };
+		5E09A21627880CBC00DED061 /* TextToastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A21527880CBC00DED061 /* TextToastItem.swift */; };
+		5E09A21827880D7800DED061 /* ImageToastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A21727880D7800DED061 /* ImageToastItem.swift */; };
+		5E09A21A27880DE500DED061 /* ActivityToastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A21927880DE500DED061 /* ActivityToastItem.swift */; };
+		5E09A21C27880E3B00DED061 /* ArcrotationToastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A21B27880E3B00DED061 /* ArcrotationToastItem.swift */; };
+		5E09A21E2788114E00DED061 /* RowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A21D2788114E00DED061 /* RowAction.swift */; };
+		5E09A2202788298000DED061 /* MixToastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A21F2788298000DED061 /* MixToastItem.swift */; };
+		5E09A22227882EB700DED061 /* GradientContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A22127882EB700DED061 /* GradientContainer.swift */; };
+		5E1102B02787F048002938A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1102AF2787F048002938A1 /* AppDelegate.swift */; };
+		5E1102B42787F048002938A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1102B32787F048002938A1 /* ViewController.swift */; };
+		5E1102B92787F049002938A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E1102B82787F049002938A1 /* Assets.xcassets */; };
+		5E1102BC2787F049002938A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E1102BA2787F049002938A1 /* LaunchScreen.storyboard */; };
+		5E1102CE2787F25C002938A1 /* ToastPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1102CD2787F25C002938A1 /* ToastPosition.swift */; };
+		5E1102D02787F295002938A1 /* ToastTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1102CF2787F295002938A1 /* ToastTime.swift */; };
+		F917CDDD646CF87E212C353F /* Pods_Splice_Toast_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5DA6206983452319B33896 /* Pods_Splice_Toast_Demo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		126CA6AF3204BE6F23FEF903 /* Pods-Splice-Toast-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splice-Toast-Demo.release.xcconfig"; path = "Target Support Files/Pods-Splice-Toast-Demo/Pods-Splice-Toast-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		5E09A1FB278803C800DED061 /* ContaienrQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaienrQueue.swift; sourceTree = "<group>"; };
+		5E09A1FD278803E600DED061 /* ContainerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerAnimator.swift; sourceTree = "<group>"; };
+		5E09A1FF278803F400DED061 /* ToastContainerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastContainerOptions.swift; sourceTree = "<group>"; };
+		5E09A2012788040D00DED061 /* WeakProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakProxy.swift; sourceTree = "<group>"; };
+		5E09A2032788042F00DED061 /* ToastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastItem.swift; sourceTree = "<group>"; };
+		5E09A2072788044C00DED061 /* ToastDSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastDSL.swift; sourceTree = "<group>"; };
+		5E09A2092788047200DED061 /* UIView+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Toast.swift"; sourceTree = "<group>"; };
+		5E09A20B2788048100DED061 /* ToastContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastContainer.swift; sourceTree = "<group>"; };
+		5E09A20D278804C100DED061 /* String+NSRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
+		5E09A20F278804CD00DED061 /* CALayer+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+CornerRadius.swift"; sourceTree = "<group>"; };
+		5E09A21127880C8100DED061 /* BlurEffectContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurEffectContainer.swift; sourceTree = "<group>"; };
+		5E09A21327880C9E00DED061 /* ColorfulContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulContainer.swift; sourceTree = "<group>"; };
+		5E09A21527880CBC00DED061 /* TextToastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToastItem.swift; sourceTree = "<group>"; };
+		5E09A21727880D7800DED061 /* ImageToastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageToastItem.swift; sourceTree = "<group>"; };
+		5E09A21927880DE500DED061 /* ActivityToastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityToastItem.swift; sourceTree = "<group>"; };
+		5E09A21B27880E3B00DED061 /* ArcrotationToastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcrotationToastItem.swift; sourceTree = "<group>"; };
+		5E09A21D2788114E00DED061 /* RowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowAction.swift; sourceTree = "<group>"; };
+		5E09A21F2788298000DED061 /* MixToastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixToastItem.swift; sourceTree = "<group>"; };
+		5E09A22127882EB700DED061 /* GradientContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientContainer.swift; sourceTree = "<group>"; };
+		5E1102AC2787F048002938A1 /* Splice-Toast-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Splice-Toast-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E1102AF2787F048002938A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5E1102B32787F048002938A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5E1102B82787F049002938A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5E1102BB2787F049002938A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5E1102BD2787F049002938A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E1102CD2787F25C002938A1 /* ToastPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPosition.swift; sourceTree = "<group>"; };
+		5E1102CF2787F295002938A1 /* ToastTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastTime.swift; sourceTree = "<group>"; };
+		BA5DA6206983452319B33896 /* Pods_Splice_Toast_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splice_Toast_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E630DCD92F8139D30B5D1DD9 /* Pods-Splice-Toast-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splice-Toast-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Splice-Toast-Demo/Pods-Splice-Toast-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E1102A92787F048002938A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F917CDDD646CF87E212C353F /* Pods_Splice_Toast_Demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E1102A32787F048002938A1 = {
+			isa = PBXGroup;
+			children = (
+				5E1102C72787F15E002938A1 /* Sources */,
+				5E1102AE2787F048002938A1 /* Splice-Toast-Demo */,
+				5E1102AD2787F048002938A1 /* Products */,
+				8E383F9B54429EF94D73DFD4 /* Pods */,
+				87F0346F47CAEAD79005ED3A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5E1102AD2787F048002938A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E1102AC2787F048002938A1 /* Splice-Toast-Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E1102AE2787F048002938A1 /* Splice-Toast-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				5E1102AF2787F048002938A1 /* AppDelegate.swift */,
+				5E1102B32787F048002938A1 /* ViewController.swift */,
+				5E09A21D2788114E00DED061 /* RowAction.swift */,
+				5E1102B82787F049002938A1 /* Assets.xcassets */,
+				5E1102BA2787F049002938A1 /* LaunchScreen.storyboard */,
+				5E1102BD2787F049002938A1 /* Info.plist */,
+			);
+			path = "Splice-Toast-Demo";
+			sourceTree = "<group>";
+		};
+		5E1102C72787F15E002938A1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5E1102C82787F15E002938A1 /* Classes */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = "<group>";
+		};
+		5E1102C82787F15E002938A1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5E1102CF2787F295002938A1 /* ToastTime.swift */,
+				5E1102CD2787F25C002938A1 /* ToastPosition.swift */,
+				5E09A1FB278803C800DED061 /* ContaienrQueue.swift */,
+				5E09A1FD278803E600DED061 /* ContainerAnimator.swift */,
+				5E09A1FF278803F400DED061 /* ToastContainerOptions.swift */,
+				5E09A2012788040D00DED061 /* WeakProxy.swift */,
+				5E09A2032788042F00DED061 /* ToastItem.swift */,
+				5E09A20B2788048100DED061 /* ToastContainer.swift */,
+				5E09A2072788044C00DED061 /* ToastDSL.swift */,
+				5E09A2092788047200DED061 /* UIView+Toast.swift */,
+				5E1102CB2787F1CD002938A1 /* Extensions */,
+				5E1102CC2787F1CD002938A1 /* Providers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5E1102CB2787F1CD002938A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5E09A20D278804C100DED061 /* String+NSRange.swift */,
+				5E09A20F278804CD00DED061 /* CALayer+CornerRadius.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5E1102CC2787F1CD002938A1 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				5E09A21127880C8100DED061 /* BlurEffectContainer.swift */,
+				5E09A21327880C9E00DED061 /* ColorfulContainer.swift */,
+				5E09A22127882EB700DED061 /* GradientContainer.swift */,
+				5E09A21527880CBC00DED061 /* TextToastItem.swift */,
+				5E09A21727880D7800DED061 /* ImageToastItem.swift */,
+				5E09A21927880DE500DED061 /* ActivityToastItem.swift */,
+				5E09A21B27880E3B00DED061 /* ArcrotationToastItem.swift */,
+				5E09A21F2788298000DED061 /* MixToastItem.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		87F0346F47CAEAD79005ED3A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA5DA6206983452319B33896 /* Pods_Splice_Toast_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E383F9B54429EF94D73DFD4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E630DCD92F8139D30B5D1DD9 /* Pods-Splice-Toast-Demo.debug.xcconfig */,
+				126CA6AF3204BE6F23FEF903 /* Pods-Splice-Toast-Demo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E1102AB2787F048002938A1 /* Splice-Toast-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E1102C02787F049002938A1 /* Build configuration list for PBXNativeTarget "Splice-Toast-Demo" */;
+			buildPhases = (
+				013743F12C17408D9B9ED8E7 /* [CP] Check Pods Manifest.lock */,
+				5E1102A82787F048002938A1 /* Sources */,
+				5E1102A92787F048002938A1 /* Frameworks */,
+				5E1102AA2787F048002938A1 /* Resources */,
+				F7FBE20337989F1E42F89905 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Splice-Toast-Demo";
+			productName = "Splice-Toast-Demo";
+			productReference = 5E1102AC2787F048002938A1 /* Splice-Toast-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E1102A42787F048002938A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					5E1102AB2787F048002938A1 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 5E1102A72787F048002938A1 /* Build configuration list for PBXProject "Splice-Toast-Demo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5E1102A32787F048002938A1;
+			productRefGroup = 5E1102AD2787F048002938A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E1102AB2787F048002938A1 /* Splice-Toast-Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E1102AA2787F048002938A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E1102BC2787F049002938A1 /* LaunchScreen.storyboard in Resources */,
+				5E1102B92787F049002938A1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		013743F12C17408D9B9ED8E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Splice-Toast-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7FBE20337989F1E42F89905 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Splice-Toast-Demo/Pods-Splice-Toast-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Splice-Toast-Demo/Pods-Splice-Toast-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Splice-Toast-Demo/Pods-Splice-Toast-Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E1102A82787F048002938A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E09A21A27880DE500DED061 /* ActivityToastItem.swift in Sources */,
+				5E09A21627880CBC00DED061 /* TextToastItem.swift in Sources */,
+				5E09A20A2788047200DED061 /* UIView+Toast.swift in Sources */,
+				5E09A2022788040D00DED061 /* WeakProxy.swift in Sources */,
+				5E09A21227880C8100DED061 /* BlurEffectContainer.swift in Sources */,
+				5E09A200278803F400DED061 /* ToastContainerOptions.swift in Sources */,
+				5E1102B42787F048002938A1 /* ViewController.swift in Sources */,
+				5E09A2202788298000DED061 /* MixToastItem.swift in Sources */,
+				5E09A210278804CD00DED061 /* CALayer+CornerRadius.swift in Sources */,
+				5E09A2042788042F00DED061 /* ToastItem.swift in Sources */,
+				5E09A20E278804C100DED061 /* String+NSRange.swift in Sources */,
+				5E09A20C2788048100DED061 /* ToastContainer.swift in Sources */,
+				5E1102B02787F048002938A1 /* AppDelegate.swift in Sources */,
+				5E09A22227882EB700DED061 /* GradientContainer.swift in Sources */,
+				5E09A21E2788114E00DED061 /* RowAction.swift in Sources */,
+				5E1102D02787F295002938A1 /* ToastTime.swift in Sources */,
+				5E09A21C27880E3B00DED061 /* ArcrotationToastItem.swift in Sources */,
+				5E09A21427880C9E00DED061 /* ColorfulContainer.swift in Sources */,
+				5E09A1FC278803C800DED061 /* ContaienrQueue.swift in Sources */,
+				5E09A21827880D7800DED061 /* ImageToastItem.swift in Sources */,
+				5E09A2082788044C00DED061 /* ToastDSL.swift in Sources */,
+				5E1102CE2787F25C002938A1 /* ToastPosition.swift in Sources */,
+				5E09A1FE278803E600DED061 /* ContainerAnimator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5E1102BA2787F049002938A1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E1102BB2787F049002938A1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5E1102BE2787F049002938A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5E1102BF2787F049002938A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5E1102C12787F049002938A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E630DCD92F8139D30B5D1DD9 /* Pods-Splice-Toast-Demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Splice-Toast-Demo/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zgjff.Splice-Toast-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5E1102C22787F049002938A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 126CA6AF3204BE6F23FEF903 /* Pods-Splice-Toast-Demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Splice-Toast-Demo/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zgjff.Splice-Toast-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E1102A72787F048002938A1 /* Build configuration list for PBXProject "Splice-Toast-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E1102BE2787F049002938A1 /* Debug */,
+				5E1102BF2787F049002938A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E1102C02787F049002938A1 /* Build configuration list for PBXNativeTarget "Splice-Toast-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E1102C12787F049002938A1 /* Debug */,
+				5E1102C22787F049002938A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E1102A42787F048002938A1 /* Project object */;
+}
