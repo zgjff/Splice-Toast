@@ -53,7 +53,7 @@ extension ToastPosition {
 extension ToastPosition {
     internal func centerForContainer(_ container: ToastContainer, inView superView: UIView) -> CGPoint {
         let cx = superView.bounds.width * 0.5
-        let containerSize = container.toastContainerSize()
+        let containerSize = container.bounds.size
         let cy: CGFloat
         switch ignoreSafeAreaInsets {
         case false:

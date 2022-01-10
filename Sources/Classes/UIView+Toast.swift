@@ -20,7 +20,10 @@ public extension UIView {
     }
     
     func hideAllToasts() {
-//        inQueueContaienrQueue.removeAll()
+        print("hideAllToasts-------", shownContaienrQueue.arr)
+        shownContaienrQueue.forEach { [weak self] container in
+            self?.hideToast(container)
+        }
     }
 }
 

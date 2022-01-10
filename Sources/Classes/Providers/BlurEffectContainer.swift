@@ -8,13 +8,29 @@
 import UIKit
 
 /// `BlurEffect`的容器默认实现
-public final class BlurEffectContainer: UIVisualEffectView, ToastContainer {
+public final class BlurEffectContainer<Item: ToastItemable>: UIVisualEffectView, ToastContainer, CAAnimationDelegate {
     public var options = ToastContainerOptions()
     private var hiddenCompletion: ((BlurEffectContainer) -> ())?
-    public init(effect: UIBlurEffect = UIBlurEffect(style: .dark)) {
-        super.init(effect: effect)
+    private var toastItem: Item?
+    private var orientationObserver: NSObjectProtocol?
+    private var isPortraitOrientation = UIApplication.shared.orientation.isPortrait {
+        didSet {
+            if isPortraitOrientation != oldValue {
+                toastItem?.onMidifyUIInterfaceOrientation(UIApplication.shared.orientation)
+            }
+        }
+    }
+    
+    public override init(effect: UIVisualEffect?) {
+        let eff = effect == nil ? UIBlurEffect(style: .dark) : effect
+        super.init(effect: eff)
         let tap = UITapGestureRecognizer(target: self, action: #selector(onTap))
         addGestureRecognizer(tap)
+        
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        orientationObserver = NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { [weak self] _ in
+            self?.isPortraitOrientation = UIApplication.shared.orientation.isPortrait
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -23,23 +39,38 @@ public final class BlurEffectContainer: UIVisualEffectView, ToastContainer {
     
     deinit {
         debugPrint("BlurEffectContainer deinit")
+        if let orientationObserver = orientationObserver {
+            NotificationCenter.default.removeObserver(orientationObserver)
+        }
+        UIDevice.current.endGeneratingDeviceOrientationNotifications()
+    }
+    
+    @IBAction private func onTap() {
+        options.onClick?(self)
+    }
+    
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        layer.removeAllAnimations()
+        removeFromSuperview()
+        options.onDisappear?()
+        hiddenCompletion?(self)
+        hiddenCompletion = nil
     }
 }
 
 // MARK: - ToastContainer
 extension BlurEffectContainer {
     public func didCalculationView<T>(_ view: UIView, viewSize size: CGSize, sender: T) where T : ToastItemable {
+        toastItem = (sender as? Item)
         bounds.size = size
         contentView.addSubview(view)
-    }
-
-    public func toastContainerSize() -> CGSize {
-        return bounds.size
+        if let sv = superview {
+            self.center = options.postition.centerForContainer(self, inView: sv)
+        }
     }
 
     public func showToast(inView view: UIView) {
-        let center = options.postition.centerForContainer(self, inView: view)
-        self.center = center
+        self.center = options.postition.centerForContainer(self, inView: view)
         layer.setCornerRadius(options.cornerRadius, corner: options.corners)
         clipsToBounds = true
         view.addSubview(self)
@@ -62,23 +93,5 @@ extension BlurEffectContainer {
             options.onDisappear?()
             completion?(self)
         }
-    }
-}
-
-// MARK: - CAAnimationDelegate
-extension BlurEffectContainer: CAAnimationDelegate {
-    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        layer.removeAllAnimations()
-        removeFromSuperview()
-        options.onDisappear?()
-        hiddenCompletion?(self)
-        hiddenCompletion = nil
-    }
-}
-
-// MARK: - private
-private extension BlurEffectContainer {
-    @IBAction func onTap() {
-        options.onClick?(self)
     }
 }

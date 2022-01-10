@@ -23,8 +23,8 @@ public final class ImageToastItem: IndicatorToastItemable {
     
     public typealias Options = ImageToastItemOptions
     weak public var delegate: ToastableDelegate?
-    
     private lazy var imageView = UIImageView()
+    private var options = Options.init()
     private let data: DataSource
     
     /// 初始化包含`image`的`toast`
@@ -116,10 +116,17 @@ public final class ImageToastItem: IndicatorToastItemable {
 extension ImageToastItem {
     public func layoutToastView(with options: ImageToastItemOptions) {
         options.configUIImageView?(imageView)
+        self.options = options
         let (imageSize, toastSize) = calculationSize(with: options)
         imageView.frame = CGRect(x: options.margin.left, y: options.margin.top, width: imageSize.width, height: imageSize.height)
         delegate?.didCalculationView(imageView, viewSize: toastSize, sender: self)
         startAnimating()
+    }
+    
+    public func onMidifyUIInterfaceOrientation(_ orientation: UIInterfaceOrientation) {
+        let (imageSize, toastSize) = calculationSize(with: options)
+        imageView.frame = CGRect(x: options.margin.left, y: options.margin.top, width: imageSize.width, height: imageSize.height)
+        delegate?.didCalculationView(imageView, viewSize: toastSize, sender: self)
     }
     
     public func startAnimating() {

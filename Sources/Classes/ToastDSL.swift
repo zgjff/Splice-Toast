@@ -92,11 +92,13 @@ public extension ToastDSL {
 }
 
 public extension ToastDSL {
-    func show() {
-        let temp: ToastContainer = container == nil ? BlurEffectContainer() : container!
+    @discardableResult
+    func show() -> ToastContainer {
+        let temp: ToastContainer = container == nil ? BlurEffectContainer<T>(effect: nil) : container!
         item.delegate = temp
         temp.options = containerOptions
         item.layoutToastView(with: itemOptions)
         view.showToastContainer(temp)
+        return temp
     }
 }

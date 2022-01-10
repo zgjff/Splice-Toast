@@ -11,16 +11,22 @@ import UIKit
 public final class ArcrotationToastItem: IndicatorToastItemable {
     public typealias Options = ArcrotationToastItemOptions
     weak public var delegate: ToastableDelegate?
+    private var options = Options.init()
     private var view: View!
 }
 
 // MARK: - IndicatorToastItemable
 extension ArcrotationToastItem {
     public func layoutToastView(with options: ArcrotationToastItemOptions) {
+        self.options = options
         let viewFrame = CGRect(x: options.margin.left, y: options.margin.top, width: options.radius * 2, height: options.radius * 2)
         view = View(frame: viewFrame, options: options)
         let viewSize = CGSize(width: options.radius * 2 + options.margin.left + options.margin.right, height: options.radius * 2 + options.margin.top + options.margin.bottom)
         delegate?.didCalculationView(view, viewSize: viewSize, sender: self)
+    }
+    
+    public func onMidifyUIInterfaceOrientation(_ orientation: UIInterfaceOrientation) {
+        layoutToastView(with: options)
     }
     
     public func startAnimating() {

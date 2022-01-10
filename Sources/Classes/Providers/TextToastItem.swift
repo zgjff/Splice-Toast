@@ -8,7 +8,7 @@
 import UIKit
 
 /// 显示文字的`toast`的默认实现
-public final class TextToastItem {
+public final class TextToastItem: TextToastItemable {
     public typealias Options = TextToastItemOptions
     private lazy var label: UILabel = {
        let l = UILabel()
@@ -21,9 +21,9 @@ public final class TextToastItem {
     }()
     
     weak public var delegate: ToastableDelegate?
-    
     private let attributedString: NSAttributedString
-    
+    private var labelMargin = UIEdgeInsets.zero
+    private var options = Options.init()
     public init(text: String) {
         attributedString = NSAttributedString(string: text)
     }
@@ -32,15 +32,26 @@ public final class TextToastItem {
         self.attributedString = attributedString
     }
     
-    private var labelMargin = UIEdgeInsets.zero
+    deinit {
+        print("TextToastItem---deinit", self, type(of: self))
+    }
 }
 
 // MARK: - TextToastable
-extension TextToastItem: TextToastItemable {
+extension TextToastItem {
     public func layoutToastView(with options: TextToastItemOptions) {
+        self.options = options
         labelMargin = options.margin
         configLabel(with: options)
-        let (lsize, vsize) = calculationSize(with: options.margin, maxSize: options.maxSize)
+        let maxSize = options.maxSize(UIApplication.shared.orientation)
+        let (lsize, vsize) = calculationSize(with: options.margin, maxSize: maxSize)
+        label.frame = CGRect(origin: CGPoint(x: options.margin.left, y: options.margin.top), size: lsize)
+        delegate?.didCalculationView(label, viewSize: vsize, sender: self)
+    }
+    
+    public func onMidifyUIInterfaceOrientation(_ orientation: UIInterfaceOrientation) {
+        let maxSize = options.maxSize(orientation)
+        let (lsize, vsize) = calculationSize(with: options.margin, maxSize: maxSize)
         label.frame = CGRect(origin: CGPoint(x: options.margin.left, y: options.margin.top), size: lsize)
         delegate?.didCalculationView(label, viewSize: vsize, sender: self)
     }
@@ -114,7 +125,8 @@ public struct TextToastItemOptions: ToastItemOptions {
     /// 设置文字label外边距
     public var margin = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     
-    /// 设置内容区域的最大size
-    public var maxSize = CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.height - 200)
+    /// item的最大size
+    public var maxSize: (UIInterfaceOrientation) -> (CGSize) = { _ in
+        return CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.height - 200)
+    }
 }
-

@@ -10,7 +10,6 @@ import UIKit
 /// `toast`容器协议
 public protocol ToastContainer: UIView, ToastableDelegate {
     var options: ToastContainerOptions { get set }
-    func toastContainerSize() -> CGSize
     func showToast(inView view: UIView)
     func startHide(completion: ((Self) -> ())?)
 }

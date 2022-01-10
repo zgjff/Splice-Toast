@@ -13,8 +13,7 @@ struct RowAction {
 }
 
 extension RowAction {
-    static let showTextAtTop = RowAction(title: "顶部显示文字", action: "onClickShowTextAtTop")
-    static let showTextAtCenter = RowAction(title: "居中显示文字", action: "onClickShowTextAtCenter")
+    static let showText = RowAction(title: "显示文字", action: "onClickShowText")
     static let showAttributedStringText = RowAction(title: "显示富文本", action: "onClickShowAttributedStringText")
     static let showActivity = RowAction(title: "显示系统的指示器", action: "onClickShowActivity")
     static let showArcrotation = RowAction(title: "显示三色转动的的指示器", action: "onClickShowArcrotation")

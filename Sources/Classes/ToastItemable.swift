@@ -1,5 +1,5 @@
 //
-//  ToastItem.swift
+//  ToastItemable.swift
 //  Splice-Toast-Demo
 //
 //  Created by 郑桂杰 on 2022/1/7.
@@ -17,6 +17,7 @@ public protocol ToastItemable: AnyObject {
     associatedtype Options: ToastItemOptions
     var delegate: ToastableDelegate? { get set }
     func layoutToastView(with options: Options)
+    func onMidifyUIInterfaceOrientation(_ orientation: UIInterfaceOrientation)
 }
 
 public protocol ToastableDelegate: NSObjectProtocol {

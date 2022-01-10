@@ -51,7 +51,7 @@ extension ToastContainerOptions {
     internal func startHiddenAnimations(for view: UIView) -> CAAnimation? {
         return handleAnimations(disappearAnimations, forView: view)
     }
-       
+    
     @discardableResult
     private func handleAnimations(_ animations: Set<ContainerAnimator>, forView view: UIView) -> CAAnimation? {
         if animations.isEmpty {

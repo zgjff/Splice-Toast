@@ -122,11 +122,16 @@ extension MixToastItem {
         textView.layoutToastView(with: options.textOptions)
     }
     
+    public func onMidifyUIInterfaceOrientation(_ orientation: UIInterfaceOrientation) {
+        
+    }
+    
     public func startAnimating() {
         indicatorView.startAnimating()
     }
 }
 
+/// MixToastItemOptions
 public struct MixToastItemOptions<Indicator: IndicatorToastItemable, Text: TextToastItem>: ToastItemOptions {
     public init() {}
     /// 指示器设置选项
@@ -157,4 +162,3 @@ extension MixToastItem {
         let toastSize: CGSize
     }
 }
-

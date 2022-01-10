@@ -11,7 +11,7 @@
 		5E09A1FE278803E600DED061 /* ContainerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A1FD278803E600DED061 /* ContainerAnimator.swift */; };
 		5E09A200278803F400DED061 /* ToastContainerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A1FF278803F400DED061 /* ToastContainerOptions.swift */; };
 		5E09A2022788040D00DED061 /* WeakProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A2012788040D00DED061 /* WeakProxy.swift */; };
-		5E09A2042788042F00DED061 /* ToastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A2032788042F00DED061 /* ToastItem.swift */; };
+		5E09A2042788042F00DED061 /* ToastItemable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A2032788042F00DED061 /* ToastItemable.swift */; };
 		5E09A2082788044C00DED061 /* ToastDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A2072788044C00DED061 /* ToastDSL.swift */; };
 		5E09A20A2788047200DED061 /* UIView+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A2092788047200DED061 /* UIView+Toast.swift */; };
 		5E09A20C2788048100DED061 /* ToastContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E09A20B2788048100DED061 /* ToastContainer.swift */; };
@@ -32,6 +32,7 @@
 		5E1102BC2787F049002938A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E1102BA2787F049002938A1 /* LaunchScreen.storyboard */; };
 		5E1102CE2787F25C002938A1 /* ToastPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1102CD2787F25C002938A1 /* ToastPosition.swift */; };
 		5E1102D02787F295002938A1 /* ToastTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1102CF2787F295002938A1 /* ToastTime.swift */; };
+		5E736B832789388F00AB7DA6 /* UIApplication+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E736B822789388F00AB7DA6 /* UIApplication+Orientation.swift */; };
 		F917CDDD646CF87E212C353F /* Pods_Splice_Toast_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5DA6206983452319B33896 /* Pods_Splice_Toast_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +42,7 @@
 		5E09A1FD278803E600DED061 /* ContainerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerAnimator.swift; sourceTree = "<group>"; };
 		5E09A1FF278803F400DED061 /* ToastContainerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastContainerOptions.swift; sourceTree = "<group>"; };
 		5E09A2012788040D00DED061 /* WeakProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakProxy.swift; sourceTree = "<group>"; };
-		5E09A2032788042F00DED061 /* ToastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastItem.swift; sourceTree = "<group>"; };
+		5E09A2032788042F00DED061 /* ToastItemable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastItemable.swift; sourceTree = "<group>"; };
 		5E09A2072788044C00DED061 /* ToastDSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastDSL.swift; sourceTree = "<group>"; };
 		5E09A2092788047200DED061 /* UIView+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Toast.swift"; sourceTree = "<group>"; };
 		5E09A20B2788048100DED061 /* ToastContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastContainer.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		5E1102BD2787F049002938A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E1102CD2787F25C002938A1 /* ToastPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPosition.swift; sourceTree = "<group>"; };
 		5E1102CF2787F295002938A1 /* ToastTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastTime.swift; sourceTree = "<group>"; };
+		5E736B822789388F00AB7DA6 /* UIApplication+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Orientation.swift"; sourceTree = "<group>"; };
 		BA5DA6206983452319B33896 /* Pods_Splice_Toast_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splice_Toast_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E630DCD92F8139D30B5D1DD9 /* Pods-Splice-Toast-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splice-Toast-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Splice-Toast-Demo/Pods-Splice-Toast-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,7 +132,7 @@
 				5E09A1FD278803E600DED061 /* ContainerAnimator.swift */,
 				5E09A1FF278803F400DED061 /* ToastContainerOptions.swift */,
 				5E09A2012788040D00DED061 /* WeakProxy.swift */,
-				5E09A2032788042F00DED061 /* ToastItem.swift */,
+				5E09A2032788042F00DED061 /* ToastItemable.swift */,
 				5E09A20B2788048100DED061 /* ToastContainer.swift */,
 				5E09A2072788044C00DED061 /* ToastDSL.swift */,
 				5E09A2092788047200DED061 /* UIView+Toast.swift */,
@@ -145,6 +147,7 @@
 			children = (
 				5E09A20D278804C100DED061 /* String+NSRange.swift */,
 				5E09A20F278804CD00DED061 /* CALayer+CornerRadius.swift */,
+				5E736B822789388F00AB7DA6 /* UIApplication+Orientation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,7 +307,7 @@
 				5E1102B42787F048002938A1 /* ViewController.swift in Sources */,
 				5E09A2202788298000DED061 /* MixToastItem.swift in Sources */,
 				5E09A210278804CD00DED061 /* CALayer+CornerRadius.swift in Sources */,
-				5E09A2042788042F00DED061 /* ToastItem.swift in Sources */,
+				5E09A2042788042F00DED061 /* ToastItemable.swift in Sources */,
 				5E09A20E278804C100DED061 /* String+NSRange.swift in Sources */,
 				5E09A20C2788048100DED061 /* ToastContainer.swift in Sources */,
 				5E1102B02787F048002938A1 /* AppDelegate.swift in Sources */,
@@ -314,6 +317,7 @@
 				5E09A21C27880E3B00DED061 /* ArcrotationToastItem.swift in Sources */,
 				5E09A21427880C9E00DED061 /* ColorfulContainer.swift in Sources */,
 				5E09A1FC278803C800DED061 /* ContaienrQueue.swift in Sources */,
+				5E736B832789388F00AB7DA6 /* UIApplication+Orientation.swift in Sources */,
 				5E09A21827880D7800DED061 /* ImageToastItem.swift in Sources */,
 				5E09A2082788044C00DED061 /* ToastDSL.swift in Sources */,
 				5E1102CE2787F25C002938A1 /* ToastPosition.swift in Sources */,
@@ -459,13 +463,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2374CCBJYG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Splice-Toast-Demo/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -487,13 +493,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2374CCBJYG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Splice-Toast-Demo/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
