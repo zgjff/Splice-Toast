@@ -25,13 +25,13 @@ public final class MixToastItem<Indicator: IndicatorToastItemable, Text: TextToa
     
     private var indicatorToastProvider: SubToastProvider? {
         didSet {
-            calculationSize()
+            layoutViews()
         }
     }
     
     private var textToastProvider: SubToastProvider? {
         didSet {
-            calculationSize()
+            layoutViews()
         }
     }
 }
@@ -47,7 +47,91 @@ extension MixToastItem {
         }
     }
     
-    private func calculationSize() {
+    private func layoutViews() {
+        guard let indicatorProvider = indicatorToastProvider,
+              let textProvider = textToastProvider,
+              let (textFrame, indicatorFrame, viewSize) = calculationSize() else {
+                  return
+              }
+        let view = UIView()
+        indicatorProvider.view.removeFromSuperview()
+        indicatorProvider.view.frame = indicatorFrame
+        view.addSubview(indicatorProvider.view)
+        textProvider.view.removeFromSuperview()
+        textProvider.view.frame = textFrame
+        view.addSubview(textProvider.view)
+        delegate?.didCalculationView(view, viewSize: viewSize, sender: self)
+    }
+    
+    private func calculationSize() -> (textFrame: CGRect, indicatorFrame: CGRect, view: CGSize)? {
+        guard let indicatorProvider = indicatorToastProvider,
+              let textProvider = textToastProvider else {
+            return nil
+        }
+        // 指示器
+        let indicatorSize = indicatorProvider.contentSize
+        let indicatorFrame = indicatorProvider.view.frame
+        let indicatorViewSize = indicatorProvider.toastSize
+        
+        let indicatorMargin = UIEdgeInsets(top: indicatorFrame.minY, left: indicatorFrame.minX, bottom: indicatorViewSize.height - indicatorFrame.maxY, right: indicatorViewSize.width - indicatorFrame.maxX)
+        // 文字
+        let textSize = textProvider.contentSize
+        let textFrame = textProvider.view.frame
+        let textViewSize = textProvider.toastSize
+        let textMargin = UIEdgeInsets(top: textFrame.minY, left: textFrame.minX, bottom: textViewSize.height - textFrame.maxY, right: textViewSize.width - textFrame.maxX)
+        let width: CGFloat
+        let height: CGFloat
+        
+        let maxSize = options.maxSize(UIApplication.shared.orientation)
+        
+        switch options.position {
+        case .top:
+            width = max(indicatorViewSize.width, textViewSize.width)
+            height = indicatorMargin.top + indicatorSize.height + options.indicatorAndTextSpace + textSize.height + textMargin.bottom
+            
+            if (width > maxSize.width) || (height > maxSize.height) {
+                textView.resetContentSizeWithMaxSize(CGSize(width: maxSize.width, height: maxSize.height - options.indicatorAndTextSpace - indicatorSize.height - textMargin.bottom - indicatorMargin.top))
+                return nil
+            }
+            
+            let textFrame = CGRect(x: width * 0.5 - textSize.width * 0.5, y: height - textMargin.bottom - textSize.height, width: textSize.width, height: textSize.height)
+            let indicatorFrame = CGRect(x: width * 0.5 - indicatorSize.width * 0.5, y: textFrame.minY - options.indicatorAndTextSpace - indicatorSize.height, width: indicatorSize.width, height: indicatorSize.height)
+            return (textFrame, indicatorFrame, CGSize(width: width, height: height))
+        case .bottom:
+            width = max(indicatorViewSize.width, textViewSize.width)
+            height = indicatorMargin.top + indicatorSize.height + options.indicatorAndTextSpace + textSize.height + textMargin.bottom
+            if (width > maxSize.width) || (height > maxSize.height) {
+                textView.resetContentSizeWithMaxSize(CGSize(width: maxSize.width, height: maxSize.height - options.indicatorAndTextSpace - indicatorSize.height - textMargin.top - indicatorMargin.bottom))
+                return nil
+            }
+            let textFrame = CGRect(x: width * 0.5 - textSize.width * 0.5, y: textMargin.top, width: textSize.width, height: textSize.height)
+            
+            let indicatorFrame = CGRect(x: width * 0.5 - indicatorSize.width * 0.5, y: textFrame.maxY + options.indicatorAndTextSpace, width: indicatorSize.width, height: indicatorSize.height)
+            return (textFrame, indicatorFrame, CGSize(width: width, height: height))
+        case .left:
+            width = indicatorMargin.left + indicatorSize.width + options.indicatorAndTextSpace + textSize.width + textMargin.right
+            height = max(indicatorViewSize.height, textViewSize.height)
+            if (width > maxSize.width) || (height > maxSize.height) {
+                textView.resetContentSizeWithMaxSize(CGSize(width: maxSize.width - options.indicatorAndTextSpace - indicatorMargin.left - indicatorSize.width - textMargin.right, height: maxSize.height))
+                return nil
+            }
+            let indicatorFrame = CGRect(x: indicatorMargin.left, y: height * 0.5 - indicatorSize.height * 0.5, width: indicatorSize.width, height: indicatorSize.height)
+            let textFrame = CGRect(x: indicatorFrame.maxX + options.indicatorAndTextSpace, y: height * 0.5 - textSize.height * 0.5, width: textSize.width, height: textSize.height)
+            return (textFrame, indicatorFrame, CGSize(width: width, height: height))
+        case .right:
+            width = indicatorMargin.left + indicatorSize.width + options.indicatorAndTextSpace + textSize.width + textMargin.right
+            height = max(indicatorViewSize.height, textViewSize.height)
+            if (width > maxSize.width) || (height > maxSize.height) {
+                textView.resetContentSizeWithMaxSize(CGSize(width: maxSize.width - options.indicatorAndTextSpace - indicatorMargin.right - indicatorSize.width - textMargin.left, height: maxSize.height))
+                return nil
+            }
+            let indicatorFrame = CGRect(x: width - indicatorMargin.right - indicatorSize.width, y: height * 0.5 - indicatorSize.height * 0.5, width: indicatorSize.width, height: indicatorSize.height)
+            let textFrame = CGRect(x: indicatorFrame.minX - options.indicatorAndTextSpace - textSize.width, y: height * 0.5 - textSize.height * 0.5, width: textSize.width, height: textSize.height)
+            return (textFrame, indicatorFrame, CGSize(width: width, height: height))
+        }
+    }
+    
+    private func calculationSize2() {
         guard let indicatorProvider = indicatorToastProvider,
               let textProvider = textToastProvider else {
             return
@@ -66,13 +150,15 @@ extension MixToastItem {
         let width: CGFloat
         let height: CGFloat
         
+        let maxSize = options.maxSize(UIApplication.shared.orientation)
+        
         switch options.position {
         case .top:
             width = max(indicatorViewSize.width, textViewSize.width)
             height = indicatorMargin.top + indicatorSize.height + options.indicatorAndTextSpace + textSize.height + textMargin.bottom
             
-            if (width > options.maxSize.width) || (height > options.maxSize.height) {
-                textView.resetContentSizeWithMaxSize(CGSize(width: options.maxSize.width, height: options.maxSize.height - options.indicatorAndTextSpace - indicatorSize.height - textMargin.bottom - indicatorMargin.top))
+            if (width > maxSize.width) || (height > maxSize.height) {
+                textView.resetContentSizeWithMaxSize(CGSize(width: maxSize.width, height: maxSize.height - options.indicatorAndTextSpace - indicatorSize.height - textMargin.bottom - indicatorMargin.top))
                 return
             }
             
@@ -81,8 +167,8 @@ extension MixToastItem {
         case .bottom:
             width = max(indicatorViewSize.width, textViewSize.width)
             height = indicatorMargin.top + indicatorSize.height + options.indicatorAndTextSpace + textSize.height + textMargin.bottom
-            if (width > options.maxSize.width) || (height > options.maxSize.height) {
-                textView.resetContentSizeWithMaxSize(CGSize(width: options.maxSize.width, height: options.maxSize.height - options.indicatorAndTextSpace - indicatorSize.height - textMargin.top - indicatorMargin.bottom))
+            if (width > maxSize.width) || (height > maxSize.height) {
+                textView.resetContentSizeWithMaxSize(CGSize(width: maxSize.width, height: maxSize.height - options.indicatorAndTextSpace - indicatorSize.height - textMargin.top - indicatorMargin.bottom))
                 return
             }
             textProvider.view.frame = CGRect(x: width * 0.5 - textSize.width * 0.5, y: textMargin.top, width: textSize.width, height: textSize.height)
@@ -91,8 +177,8 @@ extension MixToastItem {
         case .left:
             width = indicatorMargin.left + indicatorSize.width + options.indicatorAndTextSpace + textSize.width + textMargin.right
             height = max(indicatorViewSize.height, textViewSize.height)
-            if (width > options.maxSize.width) || (height > options.maxSize.height) {
-                textView.resetContentSizeWithMaxSize(CGSize(width: options.maxSize.width - options.indicatorAndTextSpace - indicatorMargin.left - indicatorSize.width - textMargin.right, height: options.maxSize.height))
+            if (width > maxSize.width) || (height > maxSize.height) {
+                textView.resetContentSizeWithMaxSize(CGSize(width: maxSize.width - options.indicatorAndTextSpace - indicatorMargin.left - indicatorSize.width - textMargin.right, height: maxSize.height))
                 return
             }
             indicatorProvider.view.frame = CGRect(x: indicatorMargin.left, y: height * 0.5 - indicatorSize.height * 0.5, width: indicatorSize.width, height: indicatorSize.height)
@@ -100,8 +186,8 @@ extension MixToastItem {
         case .right:
             width = indicatorMargin.left + indicatorSize.width + options.indicatorAndTextSpace + textSize.width + textMargin.right
             height = max(indicatorViewSize.height, textViewSize.height)
-            if (width > options.maxSize.width) || (height > options.maxSize.height) {
-                textView.resetContentSizeWithMaxSize(CGSize(width: options.maxSize.width - options.indicatorAndTextSpace - indicatorMargin.right - indicatorSize.width - textMargin.left, height: options.maxSize.height))
+            if (width > maxSize.width) || (height > maxSize.height) {
+                textView.resetContentSizeWithMaxSize(CGSize(width: maxSize.width - options.indicatorAndTextSpace - indicatorMargin.right - indicatorSize.width - textMargin.left, height: maxSize.height))
                 return
             }
             indicatorProvider.view.frame = CGRect(x: width - indicatorMargin.right - indicatorSize.width, y: height * 0.5 - indicatorSize.height * 0.5, width: indicatorSize.width, height: indicatorSize.height)
@@ -123,7 +209,9 @@ extension MixToastItem {
     }
     
     public func onMidifyUIInterfaceOrientation(_ orientation: UIInterfaceOrientation) {
-        
+//        indicatorToastProvider = nil
+//        textToastProvider = nil
+        layoutToastView(with: options)
     }
     
     public func startAnimating() {
@@ -147,7 +235,9 @@ public struct MixToastItemOptions<Indicator: IndicatorToastItemable, Text: TextT
     public var indicatorAndTextSpace: CGFloat = 15
     
     /// 设置内容区域的最大size
-    public var maxSize = CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.height - 200)
+    public var maxSize: (UIInterfaceOrientation) -> (CGSize) = { _ in
+        return CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.height - 200)
+    }
 }
 
 extension MixToastItem {

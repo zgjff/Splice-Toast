@@ -13,9 +13,9 @@ public extension UIView {
         return ToastDSL(view: self, item: item)
     }
     
-    func hideToast(_ toast: ToastContainer) {
-        toast.startHide { obj in
-            self.shownContaienrQueue.remove(where: { $0 === obj })
+    func hideToast(_ toast: ToastContainer, animated: Bool = true) {
+        toast.startHide(animated: animated) { [weak self] obj in
+            self?.shownContaienrQueue.remove(where: { $0 === obj })
         }
     }
     
@@ -27,15 +27,11 @@ public extension UIView {
     }
 }
 
-public extension UIView {
-    
-}
-
 // MARK: - 非公开调用的方法
 extension UIView {
     internal func showToastContainer(_ container: ToastContainer) {
         shownContaienrQueue.append(container)
-        container.showToast(inView: self)
+        container.showToast(inView: self, animated: true)
         if case let .seconds(t) = container.options.duration {
             hideToast(container, after: t)
         }
@@ -44,13 +40,11 @@ extension UIView {
     internal func hideToast(_ toast: ToastContainer, after time: TimeInterval) {
         if time <= 0.15 {
             self.hideToast(toast)
-            
             return
         }
-        // TODO: - 倒计时放在这里不合理,应该放在ToastContainer中,且用NSTimer
+        // TODO: - 倒计时放在这里不合理,应该放在ToastContainer中,且不能用GCD after
         DispatchQueue.main.asyncAfter(deadline: .now() + time) { [weak self] in
             self?.hideToast(toast)
         }
     }
 }
-

@@ -32,6 +32,7 @@
 		5E1102BC2787F049002938A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E1102BA2787F049002938A1 /* LaunchScreen.storyboard */; };
 		5E1102CE2787F25C002938A1 /* ToastPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1102CD2787F25C002938A1 /* ToastPosition.swift */; };
 		5E1102D02787F295002938A1 /* ToastTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1102CF2787F295002938A1 /* ToastTime.swift */; };
+		5E2142D1278C30EE00CC676F /* SameToastItemTypeStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2142D0278C30EE00CC676F /* SameToastItemTypeStrategy.swift */; };
 		5E736B832789388F00AB7DA6 /* UIApplication+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E736B822789388F00AB7DA6 /* UIApplication+Orientation.swift */; };
 		F917CDDD646CF87E212C353F /* Pods_Splice_Toast_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5DA6206983452319B33896 /* Pods_Splice_Toast_Demo.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		5E1102BD2787F049002938A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E1102CD2787F25C002938A1 /* ToastPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPosition.swift; sourceTree = "<group>"; };
 		5E1102CF2787F295002938A1 /* ToastTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastTime.swift; sourceTree = "<group>"; };
+		5E2142D0278C30EE00CC676F /* SameToastItemTypeStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameToastItemTypeStrategy.swift; sourceTree = "<group>"; };
 		5E736B822789388F00AB7DA6 /* UIApplication+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Orientation.swift"; sourceTree = "<group>"; };
 		BA5DA6206983452319B33896 /* Pods_Splice_Toast_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splice_Toast_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E630DCD92F8139D30B5D1DD9 /* Pods-Splice-Toast-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splice-Toast-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Splice-Toast-Demo/Pods-Splice-Toast-Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				5E09A1FB278803C800DED061 /* ContaienrQueue.swift */,
 				5E09A1FD278803E600DED061 /* ContainerAnimator.swift */,
 				5E09A1FF278803F400DED061 /* ToastContainerOptions.swift */,
+				5E2142D0278C30EE00CC676F /* SameToastItemTypeStrategy.swift */,
 				5E09A2012788040D00DED061 /* WeakProxy.swift */,
 				5E09A2032788042F00DED061 /* ToastItemable.swift */,
 				5E09A20B2788048100DED061 /* ToastContainer.swift */,
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E2142D1278C30EE00CC676F /* SameToastItemTypeStrategy.swift in Sources */,
 				5E09A21A27880DE500DED061 /* ActivityToastItem.swift in Sources */,
 				5E09A21627880CBC00DED061 /* TextToastItem.swift in Sources */,
 				5E09A20A2788047200DED061 /* UIView+Toast.swift in Sources */,

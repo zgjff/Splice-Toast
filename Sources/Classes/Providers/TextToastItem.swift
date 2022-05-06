@@ -125,7 +125,7 @@ public struct TextToastItemOptions: ToastItemOptions {
     /// 设置文字label外边距
     public var margin = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     
-    /// item的最大size
+    /// 设置内容区域的最大size
     public var maxSize: (UIInterfaceOrientation) -> (CGSize) = { _ in
         return CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.height - 200)
     }

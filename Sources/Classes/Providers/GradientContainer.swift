@@ -77,30 +77,17 @@ extension GradientContainer {
         }
     }
     
-    public func showToast(inView view: UIView) {
-        self.center = options.postition.centerForContainer(self, inView: view)
-        layer.setCornerRadius(options.cornerRadius, corner: options.corners)
-        clipsToBounds = true
-        view.addSubview(self)
-        options.onAppear?()
-        if let ani = options.startAppearAnimations(for: self) {
-            let key = options.layerAnimationKey(forShow: true)
-            layer.add(ani, forKey: key)
-        }
-    }
-    
-    public func startHide(completion: ((GradientContainer) -> ())?) {
-        // 如果显示时间太短,还处在显示动画中,直接干掉显示动画
+    public func startHide(animated: Bool, completion: ((GradientContainer<Item>) -> ())?) {
         layer.removeAllAnimations()
-        if let ani = options.startHiddenAnimations(for: self) {
+        if animated, let ani = options.startHiddenAnimations(for: self) {
             hiddenCompletion = completion
             ani.delegate = WeakProxy(target: self).target
             let key = options.layerAnimationKey(forShow: false)
             layer.add(ani, forKey: key)
-        } else {
-            removeFromSuperview()
-            options.onDisappear?()
-            completion?(self)
+            return
         }
+        removeFromSuperview()
+        options.onDisappear?()
+        completion?(self)
     }
 }

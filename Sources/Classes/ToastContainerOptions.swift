@@ -31,6 +31,12 @@ public struct ToastContainerOptions {
     init() {
         disappearAnimations = [ContainerAnimator.opacity(0).opposite]
     }
+    
+    func aaaa() async -> Int {
+        return await withCheckedContinuation({ c in
+            c.resume(with: .success(3))
+        })
+    }
 }
 
 extension ToastContainerOptions {

@@ -77,7 +77,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - cell actions
 private extension ViewController {
     @IBAction func onClickShowText() {
-        view.makeToast(TextToastItem(text: "我是一个toast思考觉得很烦看见了撒谎的风口浪尖上打开了飞机还是大家快来粉红色打开了粉红色打卡记录啊就是多喝咖啡连锁店看见拉黑粉丝卡德罗夫和监考老师大喊风口浪尖上大号疯狂了手机大号发空间拉屎都会疯狂拉升的机会饭卡的世界里就咖色短发好看撒拉多加湖疯狂拉多少"))
+        view.makeToast(TextToastItem(text: "For students, learning Swift has been a great introduction to modern programming concepts and best practices. And because it is open, their Swift skills will be able to be applied to an even broader range of platforms, from mobile devices to the desktop to the cloud."))
             .duration(.distantFuture)
             .didClick(block: { [weak self] c in
                 self?.view.hideToast(c)
@@ -96,9 +96,9 @@ private extension ViewController {
     }
     
     @IBAction func onClickShowActivity() {
-        view.makeToast(ActivityToastItem()).updateItem(options: { opt in
-            
-        }).duration(.distantFuture).position(.threeQuarter).show()
+        view.makeToast(ActivityToastItem())
+            .duration(.distantFuture)
+            .position(.threeQuarter).show()
     }
     
     @IBAction func onClickShowArcrotation() {
@@ -169,17 +169,13 @@ private extension ViewController {
     }
     
     @IBAction func onClickShowMixActivityAndTextToast() {
-        view.makeToast(MixToastItem(indicator: ActivityToastItem(), text: TextToastItem(text: "我是系统Activity+文字toast")))
-            .updateItem(options: { opt in
-                opt.position = .left
-            }).position(.safeTop).duration(.distantFuture).show()
+        view.makeToast(MixToastItem(indicator: ActivityToastItem(), text: TextToastItem(text: "For students, learning Swift has been a great introduction to modern programming concepts and best practices. And because it is open, their Swift skills will be able to be applied to an even broader range of platforms, from mobile devices to the desktop to the cloud.")))
+            .position(.safeTop).duration(.distantFuture).show()
     }
     
     @IBAction func onClickShowMixArcrotationAndTextToast() {
         view.makeToast(MixToastItem(indicator: ArcrotationToastItem(), text: TextToastItem(text: "我是三色转动指示器+文字toast")))
-            .updateItem(options: { opt in
-                opt.position = .bottom
-            }).position(.quarter).duration(.distantFuture).show()
+            .position(.quarter).duration(.distantFuture).show()
     }
     
     @IBAction func onClickShowUsingColorContainerTextToast() {
